@@ -35,8 +35,8 @@ let promise4 = new Promise(function(resolve, reject) {
   
   // resolve runs the first function in .then
   promise4.then(
-    result => alert(result), // shows "done!" after 1 second
-    error => alert(error) // doesn't run
+    result => console.log(result), // shows "done!" after 1 second
+    error => console.log(error) // doesn't run
   );
 
 // If we're interested only in successful completions, then we can provide only one
@@ -45,7 +45,7 @@ let promise5 = new Promise(resolve => {
     setTimeout(() => resolve("done!"), 1000);
   });
   
-  promise5.then(alert); // shows "done!" after 1 second
+  promise5.then(console.log); // shows "done!" after 1 second
 
 // If we’re interested only in errors, then we can use null as the first argument:
 // .then(null, errorHandlingFunction). Or we can use .catch(errorHandlingFunction)
@@ -54,7 +54,7 @@ let promise6 = new Promise((resolve, reject) => {
   });
   
   // .catch(f) is the same as promise.then(null, f)
-  promise.catch(alert); // shows "Error: Whoops!" after 1 second
+  promise6.catch(console.log); // shows "Error: Whoops!" after 1 second
 
 //  Cleanup: finally
 new Promise((resolve, reject) => {
@@ -63,14 +63,16 @@ new Promise((resolve, reject) => {
     // runs when the promise is settled, doesn't matter successfully or not
     .finally(() => console.log('stop loading indicator'))
     // so the loading indicator is always stopped before we go on
-    .then(result => console.log('show result') => console.log('show error'))
+    .then(result => console.log('show result'))
+    // or
+    .then(result => console.log('show error'))
 // A finally handler has no arguments.
 // A finally handler "passes through"
 new Promise((resolve, reject) => {
     setTimeout(() => resolve("value"), 2000);
   })
-    .finally(() => alert("Promise ready")) // triggers first
-    .then(result => alert(result)); // <-- .then shows "value"
+    .finally(() => console.log("Promise ready")) // triggers first
+    .then(result => console.log(result)); // <-- .then shows "value"
 
 new Promise((resolve, reject) => {
     throw new Error("error");
