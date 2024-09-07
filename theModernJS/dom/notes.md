@@ -15,7 +15,7 @@
 </body>
 </html>
 ```
-![Chatflow](https://github.com/Lam-Big-Water/FM-StartWithJS/blob/main/theModernJS/dom/structure.png)
+![Chat-flow](https://github.com/Lam-Big-Water/FM-StartWithJS/blob/main/theModernJS/dom/structure.png)
 
 
 # DOM nodes
